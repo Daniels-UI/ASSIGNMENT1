@@ -1,0 +1,48 @@
+// Interface
+interface Food {
+    void eat(); // Abstract method (must be implemented by concrete classes)
+}
+
+// Abstract Class
+abstract class Carbohydrates implements Food {
+    String brand;
+    
+    Carbohydrates(String brand) {
+        this.brand = brand;
+    }
+    
+    // Abstract method
+    abstract void swallowed();
+}
+
+// Concrete Class
+class Rice extends Carbohydrates {
+    Rice(String brand) {
+        super(brand);
+    }
+    
+    @Override
+    public void eat() {
+        System.out.println(brand + " Rice is being eaten");
+    }
+
+    @Override
+    void swallowed() {
+        System.out.println(brand + " Rice is swallowed");
+    }
+
+    public void digested() {
+        System.out.println(brand + " Rice is digested");
+    }
+}
+
+// Main class to test
+public class Main {
+    public static void main(String[] args) {
+        Rice myFood = new Rice("Basmati");
+        myFood.eat();
+        myFood.swallowed();
+        myFood.digested();
+    }
+}
+
